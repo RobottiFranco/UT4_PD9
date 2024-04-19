@@ -42,6 +42,8 @@ public class Main {
         /* lista productos */
         System.out.println(almacen.imprimirProductos());
 
+        System.out.println(almacen.obtenerValorTotal());
+
         // cargar los productos desde el archivo "altasprueba.txt"
         // listar los productos ordenados por codigo, junto con su cantidad existente
         // emitir el valor del stock

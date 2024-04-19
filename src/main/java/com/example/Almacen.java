@@ -32,6 +32,10 @@ public class Almacen implements IAlmacen {
         return false;
     }
 
+    public double obtenerValorTotal() {
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+    }
+
     @Override
     public Integer restarStock(Comparable clave, Integer cantidad) {
         if (this.productos.buscar(clave) != null) {
