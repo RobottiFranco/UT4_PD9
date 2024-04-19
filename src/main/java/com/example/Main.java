@@ -42,14 +42,43 @@ public class Main {
         /* lista productos */
         System.out.println(almacen.imprimirProductos());
 
-        System.out.println(almacen.obtenerValorTotal());
+        /* System.out.println(almacen.obtenerValorTotal()); */
 
-        // cargar los productos desde el archivo "altasprueba.txt"
-        // listar los productos ordenados por codigo, junto con su cantidad existente
-        // emitir el valor del stock
-        // simular las ventas a partir del archivo "ventaspruebas.txt"
-        // simular la eliminación de productos a partir del archivo "elimPrueba.txt"
-        // listar los productos ordenados por codigo, junto con su cantidad existente
+        /* reducir stock */
+
+        System.out.println("stock sin reducir de 1000087");
+        System.out.println(almacen.buscarPorCodigo("1000087").getStock());
+
+        archivo = ManejadorArchivosGenerico.leerArchivo("ventasPrueba.txt");
+        for (String string : archivo) {
+            linea = string.split(",");
+            if (almacen.buscarPorCodigo(linea[0]) != null) {
+                almacen.buscarPorCodigo(linea[0]).restarStock(Integer.parseInt(linea[1]));
+            }
+        }
+
+        System.out.println("stock reducido de 1000087");
+        System.out.println(almacen.buscarPorCodigo("1000087").getStock());
+
+        /* eliminar */
+        archivo = ManejadorArchivosGenerico.leerArchivo("elimPrueba.txt");
+        for (String string : archivo) {
+            if (almacen.buscarPorCodigo(string) != null) {
+                System.out.println(string +" eliminado:");
+                System.out.println(almacen.eliminarProducto(string));
+            }
+        }
+
+        /* no se elimina correctamente */
+        System.out.println("despues de eliminacion:");
+        System.out.println(almacen.imprimirProductos());
 
     }
+    // cargar los productos desde el archivo "altasprueba.txt"
+    // listar los productos ordenados por codigo, junto con su cantidad existente
+    // emitir el valor del stock
+    // simular las ventas a partir del archivo "ventaspruebas.txt"
+    // simular la eliminación de productos a partir del archivo "elimPrueba.txt"
+    // listar los productos ordenados por codigo, junto con su cantidad existente
+
 }

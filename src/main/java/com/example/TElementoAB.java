@@ -153,13 +153,47 @@ public class TElementoAB<T> implements IElementoAB<T> {
 
     @Override
     public TElementoAB eliminar(Comparable unaEtiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-                                                                       // Tools | Templates.
+        if (unaEtiqueta.compareTo(this.etiqueta) < 0) {
+            if (this.hijoIzq != null) {
+                this.hijoIzq = this.hijoIzq.eliminar(unaEtiqueta);
+            }
+            return this;
+        }
+
+        if (unaEtiqueta.compareTo(this.etiqueta) > 0) {
+            if (this.hijoDer != null) {
+                this.hijoDer = this.hijoDer.eliminar(unaEtiqueta);
+            }
+            return this;
+        }
+        return quitaElNodo();
+
     }
 
     private TElementoAB quitaElNodo() {
-        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
-                                                                       // Tools | Templates.
+        if (this.hijoIzq == null) {
+            return this.hijoDer;
+        }
+
+        if (this.hijoDer == null) {
+            return this.hijoIzq;
+        }
+
+        TElementoAB<T> elHijo = this.hijoIzq;
+        TElementoAB<T> elPadre = this;
+
+        while (elHijo.hijoDer != null) {
+            elPadre = elHijo;
+            elHijo = elHijo.hijoDer;
+        }
+
+        if (elPadre != this) {
+            elPadre.hijoDer = elHijo.hijoIzq;
+            elHijo.hijoIzq = this.hijoIzq;
+        }
+
+        elHijo.hijoDer = this.hijoDer;
+        return elHijo;
     }
 
 }

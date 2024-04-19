@@ -42,6 +42,7 @@ public class Producto implements IProducto {
     // y el campo stock quedará inalterado
     public Integer restarStock(Integer stock) {
         if (stock > this.stock) {
+            System.out.println("Stock menor al que se quiere restar de: " + this.getNombre() + ", " + this.getEtiqueta());
             return -1;
         } else {
             setStock(this.stock - stock);
