@@ -15,48 +15,48 @@ public class Almacen implements IAlmacen {
 
     @Override
     public void insertarProducto(Producto unProducto) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.productos.insertar(new TElementoAB<Producto>(unProducto.getEtiqueta(), unProducto));
     }
-
-
 
     @Override
     public String imprimirProductos() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.productos.inOrden();
     }
 
     @Override
     public Boolean agregarStock(Comparable clave, Integer cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.productos.buscar(clave) != null) {
+            this.productos.buscar(clave).getDatos().agergarStock(cantidad);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public Integer restarStock(Comparable clave, Integer cantidad) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.productos.buscar(clave) != null) {
+            this.productos.buscar(clave).getDatos().restarStock(cantidad);
+            return cantidad;
+        }
+        return 0;
     }
 
     @Override
     public Producto buscarPorCodigo(Comparable clave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        if (this.productos.buscar(clave) != null) {
+            return this.productos.buscar(clave).getDatos();
+        }
+        return null;
     }
 
     @Override
     public boolean eliminarProducto(Comparable clave) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if (this.productos.buscar(clave) != null) {
+            this.productos.buscar(clave).eliminar(clave);
+            return true;
+        }
+        return false;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

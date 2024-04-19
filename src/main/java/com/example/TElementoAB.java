@@ -79,12 +79,23 @@ public class TElementoAB<T> implements IElementoAB<T> {
      */
     @Override
     public String inOrden() {
-          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String result = "";
+
+        if (this.hijoIzq != null) {
+            result += hijoIzq.inOrden() + " ";
+        }
+        result += this.etiqueta;
+
+        if (this.hijoDer != null) {
+            result += " " + hijoDer.inOrden();
+        }
+        return result;
     }
 
-   @Override
+    @Override
     public void inOrden(Lista<T> unaLista) {
-          throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
 
     }
 
@@ -116,41 +127,39 @@ public class TElementoAB<T> implements IElementoAB<T> {
         this.hijoDer = elemento;
     }
 
-
-
     @Override
     public int obtenerAltura() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerTamanio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerNivel(Comparable unaEtiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerCantidadHojas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
-     @Override
+    @Override
     public TElementoAB eliminar(Comparable unaEtiqueta) {
-              throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
-
-
- private TElementoAB quitaElNodo() {
-               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private TElementoAB quitaElNodo() {
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
-
-
-
-
 
 }

@@ -49,6 +49,7 @@ public class TArbolBB<T> implements IArbolBB<T> {
             return raiz.inOrden();
         }
     }
+    
 
     /**
      * @return recorrida en preOrden del arbol, null en caso de ser vacío
@@ -73,7 +74,7 @@ public class TArbolBB<T> implements IArbolBB<T> {
 
     @Override
     public Lista<T> inorden() {
-        Lista <T> listaInorden = null;
+        Lista<T> listaInorden = null;
         if (!esVacio()) {
             listaInorden = new Lista<T>();
             raiz.inOrden(listaInorden);
@@ -84,30 +85,33 @@ public class TArbolBB<T> implements IArbolBB<T> {
 
     @Override
     public int obtenerAltura() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerTamanio() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerNivel(Comparable unaEtiqueta) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
     @Override
     public int obtenerCantidadHojas() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet."); // To change body of generated methods, choose
+                                                                       // Tools | Templates.
     }
 
-  @Override
+    @Override
     public void eliminar(Comparable unaEtiqueta) {
         if (!esVacio()) {
             this.raiz = this.raiz.eliminar(unaEtiqueta);
         }
     }
-
 
 }
