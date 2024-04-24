@@ -57,7 +57,7 @@ public class Almacen implements IAlmacen {
     @Override
     public boolean eliminarProducto(Comparable clave) {
         if (this.productos.buscar(clave) != null) {
-            this.productos.buscar(clave).eliminar(clave);
+            this.productos.eliminar(clave);
             return true;
         }
         return false;
